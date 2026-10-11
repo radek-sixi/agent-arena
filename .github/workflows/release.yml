@@ -179,11 +179,11 @@ jobs:
           set -euo pipefail
           npm ci --ignore-scripts --no-audit --no-fund
           echo "postject $(node -p "require('postject/package.json').version") (lockfile)"
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: cli-bundle
           path: sea/dist
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: golden
           path: sea/golden
@@ -459,7 +459,7 @@ jobs:
       - name: npm ${{ env.NPM_PUBLISH_VERSION }} (trusted publishing needs >= 11.5.1)
         run: npm install -g "npm@${NPM_PUBLISH_VERSION}"
       # The same bytes the binaries embedded and the smoke tests proved.
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: cli-bundle
           path: packages/arena-cli/dist
@@ -496,16 +496,16 @@ jobs:
       IMAGE_AMD64: ${{ needs.image.outputs.amd64 }}
       IMAGE_ARM64: ${{ needs.image.outputs.arm64 }}
     steps:
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: bin-*
           path: assets
           merge-multiple: true
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: sbom
           path: assets
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: image-sbom
           path: assets
